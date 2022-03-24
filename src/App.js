@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Home from './Components/Home';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import CreatePost from './Components/CreatePost';
+import AllPost from './Components/AllPost';
+import NotFound from './Components/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Switch>
+        <Redirect from='/CreatePost' to='/Register' />
+          <Route exact path='/' component={Home}>
+            <Home />
+          </Route>
+
+          <Route exact path='/Register' component={Register}>
+            <Register />
+          </Route>
+
+          <Route exact path='/Login' component={Login}>
+            <Login />
+          </Route>
+
+          <Route exact path='/CreatePost' component={CreatePost}>
+            <CreatePost />
+          </Route>
+
+          <Route exact path='/AllPost' component={AllPost}>
+            <AllPost />
+          </Route>
+
+          <Route component=
+            {NotFound}>
+
+          </Route>
+
+
+
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
