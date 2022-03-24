@@ -10,7 +10,7 @@ function Navbar() {
                 <div className='navbar__list'>
                     <ul>
                         <li>
-                            <Link to="/Register">Sign up bitch</Link>
+                            <Link to="/Register">Sign up biatch</Link>
                         </li>
 
                         <li>
